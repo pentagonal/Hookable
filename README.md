@@ -1,8 +1,12 @@
 # Hookable
+Hook able Library like a WordPress uses
 
 [![Build Status](https://travis-ci.org/pentagonal/Hookable.svg?branch=master)](https://travis-ci.org/pentagonal/Hookable)
+[![Latest Stable Version](https://poser.pugx.org/pentagonal/hookable/v/stable)](https://packagist.org/packages/pentagonal/hookable)
+[![License](https://poser.pugx.org/pentagonal/hookable/license)](https://packagist.org/packages/pentagonal/hookable)
+[![Total Downloads](https://poser.pugx.org/pentagonal/hookable/downloads)](https://packagist.org/packages/pentagonal/hookable)
 
-Hook able Library like a WordPress uses
+### Usage
 
 ```php
 $hook = new \Pentagonal\Hookable\Hookable();
@@ -49,9 +53,9 @@ $hook->add(
 var_dump(thIsIsOnHookReturn());
 
 ```
-# Install
+### Install
 
-```
+```json
 {
    "require": {
        "pentagonal/hookable": "^1"
