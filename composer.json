@@ -2,7 +2,7 @@
   "name": "pentagonal/hookable",
   "description": "Hook able Library like a WordPress uses",
   "keywords": ["Hooks", "Library", "Utility", "Module", "WordPress"],
-  "homepage": "http://www.pentagonal.org/",
+  "homepage": "https://www.pentagonal.org/",
   "type": "library",
   "version": "1.0",
   "license": "GPL-3.0+",
