@@ -2,6 +2,7 @@
 /**
  * @author awan <nawa@yahoo.com>
  * @license GPL-3.0+
+ * @version 1.0
  */
 namespace Pentagonal\Hookable;
 
