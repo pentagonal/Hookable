@@ -49,3 +49,12 @@ $hook->add(
 var_dump(thIsIsOnHookReturn());
 
 ```
+# Install
+
+```
+{
+   "require": {
+       "pentagonal/hookable": "^1"
+   }
+}
+```
