@@ -1,0 +1,22 @@
+<phpunit bootstrap="./Bootstrap.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false"
+         syntaxCheck="true" >
+    <testsuite name="Pentagonal Hookable Test Case Suite">
+        <directory>.</directory>
+    </testsuite>
+    <filter>
+        <blacklist>
+            <directory suffix=".php">../</directory>
+        </blacklist>
+        <whitelist>
+            <directory suffix=".php">../src/Pentagonal/Hookable</directory>
+            <exclude>
+                <file>./Bootstrap.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
