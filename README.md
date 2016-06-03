@@ -1,5 +1,7 @@
 # Hookable
 
+[![Build Status](https://travis-ci.org/pentagonal/Hookable.svg?branch=master)](https://travis-ci.org/pentagonal/Hookable)
+
 Hook able Library like a WordPress uses
 
 ```php
