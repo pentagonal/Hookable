@@ -41,8 +41,7 @@ $hook->add(
         return $new_result;
     },
     10, // priority
-    1, // arguments accepted
-    true, // append if not exists
+    1 // arguments accepted
 );
 
 /**
