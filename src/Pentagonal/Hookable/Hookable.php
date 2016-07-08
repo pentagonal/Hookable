@@ -153,15 +153,11 @@ class Hookable
      * @return boolean
      * @throws \Exception
      */
-    public function add($hookName, $callable, $priority = 10, $accepted_args = 1, $append = true)
+    public function add($hookName, $callable, $priority = 10, $accepted_args = 1)
     {
         $hookName = $this->sanitize($hookName);
         if (!$hookName) {
             throw new \Exception("Invalid Hook Name Specified", E_USER_ERROR);
-        }
-        // check append and has callable
-        if ($this->has($hookName, $callable) && ! $append) {
-            return false;
         }
 
         $id = $this->uniqueId($hookName, $callable, $priority);
@@ -181,7 +177,7 @@ class Hookable
     }
 
     /**
-     * Appending Hooks Function
+     * Appending Hooks Function, if hooks existor just append the hooks
      *
      * @param  string    $hookName            Hook Name
      * @param  Callable  $callable            Callable
@@ -194,7 +190,7 @@ class Hookable
     public function append($hookName, $callable, $priority = 10, $accepted_args = 1, $create = true)
     {
         if ($create || ! $this->has($hookName, $callable)) {
-            return $this->add($hookName, $callable, $priority, $accepted_args, true);
+            return $this->add($hookName, $callable, $priority, $accepted_args);
         }
         return false;
     }
@@ -392,7 +388,7 @@ class Hookable
     }
 
     /**
-     * Replace Hooks Function
+     * Replace Hooks Function, this will replace all existing hooks
      *
      * @param  string    $hookName            Hook Name
      * @param  string    $function_to_replace Function to replace
@@ -416,13 +412,13 @@ class Hookable
         if (!$hookName) {
             throw new \Exception("Invalid Hook Name Specified", E_ERROR);
         }
-        if ($this->has($hookName)) {
-            $this->remove($hookName, $function_to_replace);
-            return $this->add($hookName, $callable, $priority, $accepted_args, true);
+
+        if (($has = $this->has($hookName, $function_to_replace)) || $create) {
+            $has && $this->remove($hookName, $function_to_replace);
+            // add hooks first
+            return $this->add($hookName, $callable, $priority, $accepted_args);
         }
-        if ($create) {
-            return $this->add($hookName, $callable, $priority, $accepted_args, true);
-        }
+
         return false;
     }
 
