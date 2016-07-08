@@ -413,6 +413,10 @@ class Hookable
             throw new \Exception("Invalid Hook Name Specified", E_ERROR);
         }
 
+        if (!is_callable($callable)) {
+            throw new \Exception("Invalid Hook Callable Specified", E_ERROR);
+        }
+
         if (($has = $this->has($hookName, $function_to_replace)) || $create) {
             $has && $this->remove($hookName, $function_to_replace);
             // add hooks first
@@ -532,5 +536,16 @@ class Hookable
         }
 
         return $this->actions[$hookName];
+    }
+
+    /**
+     * Clear all resource properties
+     */
+    public function clear()
+    {
+        $this->merged = array();
+        $this->current = array();
+        $this->actions = array();
+        $this->filters = array();
     }
 }
