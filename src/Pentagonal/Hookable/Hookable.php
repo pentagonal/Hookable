@@ -148,7 +148,6 @@ class Hookable
      * @param Callable  $callable            Callable
      * @param integer   $priority            priority
      * @param integer   $accepted_args       num count of accepted args / parameter
-     * @param boolean   $append              true if want to create new / append if not exists
      *
      * @return boolean
      * @throws \Exception
@@ -167,6 +166,8 @@ class Hookable
                 E_USER_ERROR
             );
         }
+
+        $hook_list = $this->filters;
         $hook_list[$hookName][$priority][$id] = array(
             'function' => $callable,
             'accepted_args' => $accepted_args
